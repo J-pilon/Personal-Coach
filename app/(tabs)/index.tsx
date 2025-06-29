@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 
 export default function HomeScreen() {
-  const [todos, setTodos] = useState([
+  const [tasks, setTasks] = useState([
     { title: 'Buy groceries', description: 'Milk, eggs, bread, and fruit', completed: false, category: "do" },
     { title: 'Read a book', description: 'Finish reading the current novel', completed: false, category: "do" },
     { title: 'Workout', description: '30 minutes of cardio', completed: false, category: "do" },
@@ -19,9 +19,9 @@ export default function HomeScreen() {
 
   const categoryOrder = ['do', 'defer', 'delegate'] as const;
 
-  const groupedTodos = categoryOrder.map(category => ({
+  const groupedTasks = categoryOrder.map(category => ({
     category,
-    items: todos ? todos.filter(todo => todo.category === category) : [],
+    items: tasks ? tasks.filter(task => task.category === category) : [],
   }));
 
   const [openCategories, setOpenCategories] = useState<{ [key: string]: boolean }>({
@@ -32,9 +32,9 @@ export default function HomeScreen() {
   });
 
   const handleToggle = (idx: number) => {
-    setTodos(prev => {
-      const updated = prev.map((todo, i) =>
-        i === idx ? { ...todo, completed: true } : todo
+    setTasks(prev => {
+      const updated = prev.map((task, i) =>
+        i === idx ? { ...task, completed: true } : task
       );
       return [
         ...updated.filter(t => !t.completed),
@@ -48,43 +48,48 @@ export default function HomeScreen() {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 40 }}>
-      <ThemedText style={{ fontSize: 22, fontWeight: 'bold', marginBottom: 24 }}>Todo List</ThemedText>
-      {groupedTodos.map(({ category, items }) => (
-        <View key={category} className="mb-6">
+    <ScrollView contentContainerStyle={{ padding: 20, paddingBottom: 40 }} className="bg-[#021A40] min-h-full">
+      <ThemedText className="text-[28px] font-semibold mb-8 text-center text-[#F1F5F9] tracking-wide">Task List</ThemedText>
+      {groupedTasks.map(({ category, items }) => (
+        <View key={category} className="mb-9">
           <Pressable
             onPress={() => toggleAccordion(category)}
-            className="flex flex-row items-center justify-between px-4 py-3 bg-gray-100 rounded-md border border-gray-300 mb-3"
+            className="flex flex-row items-center justify-between px-5 py-4 rounded-2xl border border-[#33CFFF] mb-2 bg-[#13203a] shadow-md"
+            style={{ shadowColor: '#274B8E', shadowOpacity: 0.10, shadowRadius: 10, shadowOffset: { width: 0, height: 3 } }}
           >
-            <View className='flex-row gap-2 items-center'>
-              <Text className="text-lg font-semibold capitalize">{category}</Text>
-              <Text className='border border-solid border-blue-700 bg-blue-700 text-white p-1 rounded-full w-8 text-center justify-center'>{items.filter((item) => !item.completed).length}</Text>
+            <View className="flex-row items-center gap-2">
+              <Text className="text-lg font-semibold capitalize text-[#E6FAFF] tracking-wide">{category}</Text>
+              <Text className="border border-solid border-[#33CFFF] bg-[#33CFFF] text-[#021A40] px-2 py-0.5 rounded-full min-w-[28px] text-center font-bold text-[15px]">
+                {items.filter((item) => !item.completed).length}
+              </Text>
             </View>
-            <Text className="text-xl">{openCategories[category] ? <FontAwesome name="angle-down" size={24} color="black" /> : <FontAwesome name="angle-up" size={24} color="black" />}</Text>
+            <Text className="text-2xl text-[#E6FAFF]">
+              {openCategories[category] ? <FontAwesome name="angle-down" size={26} color="#E6FAFF" /> : <FontAwesome name="angle-up" size={26} color="#E6FAFF" />}
+            </Text>
           </Pressable>
 
           {openCategories[category] && items.length > 0 && (
-            <View className="pl-4">
-              {items.map((todo, idx) => {
-                // Find the index in the original todos array for handleToggle
-                const originalIdx = todos.findIndex(
-                  t => t.title === todo.title && t.category === todo.category
+            <View className="pl-5">
+              {items.map((task, idx) => {
+                const originalIdx = tasks.findIndex(
+                  t => t.title === task.title && t.category === task.category
                 );
                 return (
-                  <View key={originalIdx} className="flex flex-row items-center mb-4">
+                  <View key={originalIdx} className="flex flex-row items-center mb-5">
                     <Pressable
                       onPress={() => handleToggle(originalIdx)}
-                      className={`h-6 w-6 rounded-full border-2 mr-4 ${todo.completed ? 'border-green-400 bg-green-400' : 'border-gray-400 bg-white'}`}
+                      className={`h-7 w-7 rounded-full border-2 mr-4 ${task.completed ? 'border-[#33CFFF] bg-[#33CFFF]' : 'border-[#708090] bg-[#021A40]'}`}
+                      style={{ alignItems: 'center', justifyContent: 'center', shadowColor: task.completed ? '#33CFFF' : 'transparent', shadowOpacity: task.completed ? 0.12 : 0, shadowRadius: 4, shadowOffset: { width: 0, height: 1 } }}
                     >
-                      {todo.completed && (
-                        <View className="h-3 w-3 rounded-full bg-white m-auto" />
+                      {task.completed && (
+                        <View className="h-3 w-3 rounded-full bg-[#021A40]" />
                       )}
                     </Pressable>
 
                     <View className="flex-1">
-                      <Text className={`font-bold ${todo.completed ? 'text-gray-400' : 'text-black'}`}>{todo.title}</Text>
-                      {todo.description ? (
-                        <Text className={`${todo.completed ? 'text-gray-400' : 'text-gray-700'}`}>{todo.description}</Text>
+                      <Text className={`font-bold ${task.completed ? 'text-[#708090]' : 'text-[#F1F5F9]'} text-[17px] mb-0.5 ${task.completed ? 'line-through' : ''} tracking-tight`}>{task.title}</Text>
+                      {task.description ? (
+                        <Text className={`${task.completed ? 'text-[#708090]' : 'text-[#E6FAFF]'} text-[15px] tracking-tight`}>{task.description}</Text>
                       ) : null}
                     </View>
                   </View>
