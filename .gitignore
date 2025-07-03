@@ -35,3 +35,43 @@ client/.env*.local
 
 # typescript
 client/*.tsbuildinfo
+
+# Rails
+server/log/
+server/tmp/
+server/storage/
+server/public/assets/
+server/public/packs/
+server/public/packs-test/
+server/node_modules/
+server/yarn-error.log
+server/.byebug_history
+server/.env
+server/.env.*
+server/config/master.key
+server/config/credentials/*.key
+server/db/*.sqlite3
+server/db/*.sqlite3-*
+server/db/*.sqlite3-journal
+server/.bundle/
+server/vendor/bundle/
+server/.ruby-version
+server/.ruby-gemset
+server/.rvmrc
+server/.rbenv-version
+server/.rbenv-gemset
+server/.rubocop.yml
+server/.rubocop_todo.yml
+server/.rspec_status
+server/coverage/
+server/.simplecov
+server/.yardoc/
+server/doc/
+server/.sass-cache/
+server/.webpacker/
+server/public/404.html
+server/public/422.html
+server/public/500.html
+server/public/robots.txt
+server/public/robots.txt.bak
+server/public/sitemap*.xml*
