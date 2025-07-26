@@ -1,0 +1,19 @@
+---
+description: This rule will be applied for creating concise commits for logic chunks of work. 
+globs: 
+alwaysApply: false
+---
+
+Prefix each commit with a label based on the type of work:
+feat: for new features or functional enhancements
+chore: for non-functional updates (e.g., config, dependency, or setup)
+test: for new or updated test files
+refact: for internal refactors, cleanups, or renaming
+Each commit can include up to 3 files, as long as they are part of the same logical change.
+Write concise and descriptive commit messages that clearly explain what was added or changed.
+Group changes into logical commits that reflect the purpose of the work, not just the files edited.
+Commit messages must be aligned with the current branch name (assume the branch represents a feature or ticket name).
+Output only the final list of Git commit commands, such as:
+git add file1.rb file2.rb
+git commit -m "feat: add AI endpoint for task suggestions"
+Repeat this for all uncommitted files until everything is committed properly.
