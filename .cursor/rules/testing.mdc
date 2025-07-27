@@ -1,0 +1,7 @@
+---
+description: This rule must be applied when creating tests for the client and server code.
+globs:
+alwaysApply: false
+---
+
+When testing components in the "client" directory always use testIDs instead of querying by text. The testIDs should be prepended with the component name but excluding "Screen" if the component name contains that. For example: for the SplashScreen use testID="splash-quote-text"
