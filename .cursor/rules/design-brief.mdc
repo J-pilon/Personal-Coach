@@ -8,23 +8,26 @@ alwaysApply: false
 
 ## 🛠️ Tech Stack
 
-**Frontend:**  
-- React Native (Expo)  
-  - Fast dev cycles  
-  - Cross-platform (iOS + Android)  
-  - Native-like performance  
+**Frontend:**
 
-**Backend:**  
-- Supabase  
-  - Auth  
-  - PostgreSQL DB  
-  - Edge functions for logic and caching  
+- React Native (Expo)
+  - Fast dev cycles
+  - Cross-platform (iOS + Android)
+  - Native-like performance
 
-**AI Engine:**  
-- OpenAI GPT-4o API  
-  - Langchain-lite for context injection and compression  
-  - Token budgeting middleware to keep costs low  
-  - Custom memory layer to track user’s SMART goals & task history  
+**Backend:**
+
+- Rails 7 API
+  - Authentication and Authorization using Devise-JWT and JTI revocation strategy
+  - PostgreSQL DB
+  - Edge functions for logic and caching
+
+**AI Engine:**
+
+- OpenAI GPT-4o API
+  - Langchain-lite for context injection and compression
+  - Token budgeting middleware to keep costs low
+  - Custom memory layer to track user’s SMART goals & task history
 
 ---
 
@@ -32,7 +35,7 @@ alwaysApply: false
 
 > **"Clarity without chaos. Turn intention into action."**
 
-This app helps thoughtful, high-performing individuals turn their goals into focused daily action using AI assistance and minimal interface friction.  
+This app helps thoughtful, high-performing individuals turn their goals into focused daily action using AI assistance and minimal interface friction.
 
 The mission is to reduce decision fatigue and increase execution through intelligent daily planning grounded in SMART goals.
 
@@ -45,6 +48,7 @@ The mission is to reduce decision fatigue and increase execution through intelli
 - **Premium, digital-native** – combines the feel of fintech and productivity apps
 
 ### UI Style:
+
 - **Gradient Backgrounds**: Smooth radial or vertical gradients using deep blue to cyan or teal
 - **Rounded Corners**: All containers, buttons, and inputs should have medium-to-large border radius
 - **Soft Shadows and Elevation**: Use elevation for layering, cards should hover gently
@@ -56,31 +60,32 @@ The mission is to reduce decision fatigue and increase execution through intelli
 
 ## 🗣️ Voice
 
-- **Calm, Confident, and Helpful.**  
+- **Calm, Confident, and Helpful.**
 - Always speak like a supportive mentor or intelligent assistant:
   - Short prompts
   - Clarity in language
   - Encourage without pressure
 
-> Examples:  
-> - “Let’s set a focus for the week.”  
-> - “Here’s what matters today.”  
+> Examples:
+>
+> - “Let’s set a focus for the week.”
+> - “Here’s what matters today.”
 > - “Want help refining that goal?”
 
 ---
 
 ## 🎨 Brand Colors (Updated for Gradient UI)
 
-| Color Name          | Hex Code  | Use Case                                  |
-|---------------------|-----------|-------------------------------------------|
-| Deep Navy           | `#021A40` | Background base                           |
-| Indigo Gradient Top | `#274B8E` | Gradient start (header, hero cards)       |
-| Electric Blue       | `#33CFFF` | Gradient end (CTA, primary buttons)       |
-| Light Cyan          | `#E6FAFF` | Secondary highlights, icons, cards        |
-| Soft White Text     | `#F1F5F9` | Text on dark backgrounds                  |
-| Slate Grey          | `#708090` | Subtext and muted UI labels               |
+| Color Name          | Hex Code  | Use Case                            |
+| ------------------- | --------- | ----------------------------------- |
+| Deep Navy           | `#021A40` | Background base                     |
+| Indigo Gradient Top | `#274B8E` | Gradient start (header, hero cards) |
+| Electric Blue       | `#33CFFF` | Gradient end (CTA, primary buttons) |
+| Light Cyan          | `#E6FAFF` | Secondary highlights, icons, cards  |
+| Soft White Text     | `#F1F5F9` | Text on dark backgrounds            |
+| Slate Grey          | `#708090` | Subtext and muted UI labels         |
 
-*Use gradients for cards and backgrounds, combine deep blue with electric accents for visual depth. Glow effects should be subtle and only used for CTAs.*
+_Use gradients for cards and backgrounds, combine deep blue with electric accents for visual depth. Glow effects should be subtle and only used for CTAs._
 
 ---
 
@@ -96,11 +101,11 @@ The mission is to reduce decision fatigue and increase execution through intelli
 
 ## 📐 Typography
 
-| Use Case     | Font Weight | Size   | Color         |
-|--------------|-------------|--------|---------------|
-| Headings     | SemiBold    | 24–32  | `#F1F5F9`     |
-| Body Text    | Regular     | 16     | `#E6FAFF`     |
-| Subtext      | Light       | 14     | `#708090`     |
+| Use Case  | Font Weight | Size  | Color     |
+| --------- | ----------- | ----- | --------- |
+| Headings  | SemiBold    | 24–32 | `#F1F5F9` |
+| Body Text | Regular     | 16    | `#E6FAFF` |
+| Subtext   | Light       | 14    | `#708090` |
 
 Use a modern sans-serif font like **Inter**, **Manrope**, or **Poppins**.
 
